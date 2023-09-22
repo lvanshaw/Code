@@ -175,5 +175,12 @@ class solution{
 		leader_in_array();
 		unique();
 		unique_();
+		System.out.println("");
+		merging_overlap_array();
+		merge_arrays();
+		System.out.print("\n"+ sum_of_numbers(115));
+		
+		choloate_distribution();
+		chess_moving();
 	}
 }
