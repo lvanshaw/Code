@@ -2,6 +2,7 @@ class solution{
 	public static void chess_moving(){
 		System.out.print("\nchess_moving: \n");
 		int d[] = {2,2}, s[] = {3,3};
+		int dd[][] ={{6,6}, {1,1}, {6,1}, {1,6}, {5,2}, {1,2}, {5,1}, {6,4}};
 		int count = 0;
 		while(s[0] != d[0] || s[1] != d[1]){
 			if(s[0] < d[0] && s[1] < d[1]){
