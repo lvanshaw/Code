@@ -1,10 +1,32 @@
 class solution{
 	public static void chess_moving(){
 		System.out.print("\nchess_moving: \n");
-		int d[] = {1,1}, s[] = {3,8};
+		int d[] = {2,2}, s[] = {3,3};
 		int count = 0;
 		while(s[0] != d[0] || s[1] != d[1]){
-			if(s[0] < d[0] ){
+			if(s[0] < d[0] && s[1] < d[1]){
+				s[0]++;
+				s[1]++;
+				count++;
+				System.out.println(s[0]+" "+s[1]);
+			}else if(s[0] > d[0] && s[1] < d[1]){
+				s[0]--;
+				s[1]++;
+				System.out.println(s[0]+" "+s[1]);
+				count++;
+				
+			}else if(s[0] > d[0] && s[1] > d[1]){
+				s[0]--;
+				s[1]--;
+				System.out.println(s[0]+" "+s[1]);
+				count++;
+				
+			}else if(s[0] < d[0] && s[1] > d[1] ){
+				s[0]++;
+				s[1]--;
+				System.out.println(s[0]+" "+s[1]);
+				count++;				
+			}else if(s[0] < d[0] ){
 				s[0] = s[0]+1;
 				s[1] = s[1]+1;
 				count++;
@@ -21,7 +43,7 @@ class solution{
 			else if( s[1] > d[1]){
 				s[1] = s[1]-1;
 				count++;
-			}
+			}else { break;}
 		}
 		System.out.println(s[0]+" "+s[1]+"\n"+d[0]+" "+d[1]+" \ncount: "+count);
 	}
