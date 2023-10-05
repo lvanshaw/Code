@@ -1,4 +1,48 @@
 class solution{
+		public static void common_prefix(){
+		String a[] = {"1flower", "flow", "flo"};
+		
+		String prefix = a[0];
+		int n = a.length;
+		
+		for(int i =0; i<n; i++){
+			while(a[i].indexOf(prefix) != 0){
+				prefix = prefix.substring(0, prefix.length()-1);
+			}
+		}
+		System.out.println("common prefix: "+prefix);
+	}
+	
+	public static void laptop_required(){
+		int a[] = {1,3,4,5,8,9};
+		int b[] = {2,5,6,10,11, 12};
+		
+		Arrays.sort(a);
+		Arrays.sort(b);
+		
+		int n =a.length, i = 0, j = 0;
+		int count = 1;
+		
+		while(i < n && j<n){
+			
+			if(a[i] < b[j]){
+				i++;
+				count++;
+			}else{
+				count--;
+				j++;
+			}
+		}
+		System.out.println(count);
+	}
+	public static void d2print(int a[][], int n){
+		for(int i = 0; i<n; i++){
+			for(int j = 0; j<2; j++){
+				System.out.print(a[i][j]+" ");
+			}
+			System.out.println("");
+		}
+	}
 	public static void chess_moving(){
 		System.out.print("\nchess_moving: \n");
 		int d[] = {2,2}, s[] = {3,3};
@@ -205,5 +249,8 @@ class solution{
 		
 		choloate_distribution();
 		chess_moving();
+
+		laptop_required();
+		common_prefix();
 	}
 }
