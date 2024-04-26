@@ -1,0 +1,193 @@
+import java.util.*;
+
+class TestClass {
+    static class Edge {
+        int destination;
+        int weight;
+
+        Edge(int destination, int weight) {
+            this.destination = destination;
+            this.weight = weight;
+        }
+    }
+
+    public static int dijkstra(Map<Integer, List<Edge>> graph, int start, int end) {
+        Map<Integer, Integer> distances = new HashMap<>();
+        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        priorityQueue.offer(new int[]{0, start});
+        distances.put(start, 0);
+
+        while (!priorityQueue.isEmpty()) {
+            int[] current = priorityQueue.poll();
+            int currentDistance = current[0];
+            int currentVertex = current[1];
+
+            if (distances.get(currentVertex) != null && currentDistance > distances.get(currentVertex)) {
+                continue;
+            }
+
+            if (graph.containsKey(currentVertex)) {
+                for (Edge neighbor : graph.get(currentVertex)) {
+                    int distance = currentDistance + neighbor.weight;
+
+                    if (distance < distances.getOrDefault(neighbor.destination, Integer.MAX_VALUE)) {
+                        distances.put(neighbor.destination, distance);
+                        priorityQueue.offer(new int[]{distance, neighbor.destination});
+                    }
+                }
+            }
+        }
+
+        return distances.getOrDefault(end, Integer.MAX_VALUE);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //System.out.print("Enter the total number of members: ");
+        int totalMembers = scanner.nextInt();
+        List<Integer> members = new ArrayList<>();
+        for (int i = 0; i < totalMembers; i++) {
+            members.add(scanner.nextInt());
+        }
+
+        //System.out.print("Enter the total number of edges: ");
+        int totalEdges = scanner.nextInt();
+        Map<Integer, List<Edge>> graph = new HashMap<>();
+        for (int i = 0; i < totalEdges; i++) {
+            int source = scanner.nextInt();
+            int destination = scanner.nextInt();
+            int weight = scanner.nextInt();
+
+            graph.putIfAbsent(source, new ArrayList<>());
+            graph.get(source).add(new Edge(destination, weight));
+        }
+
+        //System.out.print("Enter the starting vertex: ");
+        int startVertex = scanner.nextInt();
+        //System.out.print("Enter the ending vertex: ");
+        int endVertex = scanner.nextInt();
+
+        // Find the minimum shortest path
+        int minShortestPath = dijkstra(graph, startVertex, endVertex);
+
+        System.out.println(minShortestPath);
+    }
+}
+4 total_member
+
+member
+2
+5
+7
+9
+
+edges 4
+
+start ending weight
+2 9 2
+7 2 3
+7 9 7
+9 5 1
+7
+9
+
+
+
+
+
+import java.util.*;
+
+class TestClass {
+    static class Edge {
+        int destination;
+
+        Edge(int destination) {
+            this.destination = destination;
+        }
+    }
+
+    public static int isReachable(Map<Integer, List<Edge>> graph, int start, int end) {
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(start);
+        visited.add(start);
+
+        while (!queue.isEmpty()) {
+            int currentVertex = queue.poll();
+
+            if (currentVertex == end) {
+                return 1; // Path found
+            }
+
+            if (graph.containsKey(currentVertex)) {
+                for (Edge neighbor : graph.get(currentVertex)) {
+                    if (!visited.contains(neighbor.destination)) {
+                        queue.offer(neighbor.destination);
+                        visited.add(neighbor.destination);
+                    }
+                }
+            }
+        }
+
+        return 0; // No path found
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int totalMembers = scanner.nextInt();
+        List<Integer> members = new ArrayList<>();
+        for (int i = 0; i < totalMembers; i++) {
+            members.add(scanner.nextInt());
+        }
+int totalEdges = scanner.nextInt();
+        Map<Integer, List<Edge>> graph = new HashMap<>();
+        for (int i = 0; i < totalEdges; i++) {
+            int source = scanner.nextInt();
+            int destination = scanner.nextInt();
+
+            graph.putIfAbsent(source, new ArrayList<>());
+            graph.get(source).add(new Edge(destination));
+        }
+
+        int startVertex = scanner.nextInt();
+        int endVertex = scanner.nextInt();
+
+        int result = isReachable(graph, startVertex, endVertex);
+System.out.println(result);
+    }
+}
+total member 4
+members
+2
+5
+7
+9
+4
+
+edges
+2 9
+7 2
+7 9
+9 5
+
+start 7
+end 9
+
+is able to reach from 7 to 9 if yes return 1 or 0
+
+input format
+4
+2
+5
+7
+9
+4
+2 9
+7 2
+7 9
+9 5
+7
+9
+

@@ -1,0 +1,162 @@
+git config --global user.name ""
+git config --global user.email ""
+git init .
+
+add commit push
+
+git add .                     Moves to stageing area
+git add solution.java         file move to stageing area
+
+git rm --cached <file>        remove from stageing area
+
+git restore --staged <file>   remove from stageing area
+
+git restore <file>    ipo epd irukna, <file1>
+                                   git add file1
+                                   ipo <file1> ah modifiy panuren 
+                                   git status file1
+                                        modifjed nu irukum
+                                   so ipo modified pana munati epd irukumoo antha mathiri konduvara thaan intha command
+git status 
+
+git commit -m "message"       stageing to local
+
+git log                       shows all details 
+
+git reset                     to move to commit from seeing from git log moving to certain
+                                --soft  default, changes ah remove pannum, files ah remove pannathu
+                                     version control la irunthu poirum but data irukum
+                                --hard  remove the files too on that state
+                                    version control la irunthu yaduthurum data viyum yaduthurum
+
+
+43 minute
+git revert                    3 commit iruku, 
+                                (1 2 3) in reset, the head moves to that point and remove previous comits
+                                        in revert, specific ah matum remove pannum
+                              
+                              git revert 6sa23
+                              Asks for justification
+                              log la store aagum
+
+                              git revert 6sa23 --no-commit
+                              log la kamikathu na commit kudukanum
+
+                              orea <file> a 3changes and 3commit for each changes pani, revert pannamna merge issue varuthu
+
+
+REMOTE
+
+git clone <https>
+git push orgin master		  usename password kakum
+git branch					  to see branch
+git branch -m master		  to set branch
+git pull -r   				  get the recent file from git repository
+git remote -v				  to see which git repository
+								understand it?
+
+
+git remote set-url orgin git  
+git remote set-url --fetch orgin git
+git remote add orgin git        setting remote repo from cli
+
+local to remote
+git init
+git add README.md
+git commit -m "first commit"
+ 
+git remote add orgin https://github.com/lvanshaw/UnityGame.git
+	git remote set-url orgin git  			to change the remote git
+	git remote set-url --fetch orgin https://github.com/lvanshaw/Project-Documents.git
+git push -u orgin main --force
+git config user.name "Ivanshaw"
+git config user.email "ivanshaw233@gmail.com"
+git config http.postBuffer 524288000
+git config http.lowSpeedTime 600
+
+git remote add orgin https://github.com/lvanshaw/Unity-Snippets-Page.git
+git branch -M main 
+git push -u orgin main --force
+
+
+push and existing repository from the command line
+     git branch -M master 
+     git remote add orgin https://github.com/lvanshaw/Project.git
+     git push -u orgin master
+
+
+while creating branch all files copied to that branch?
+git branch develop 		to create new branch
+git checkout develop	to change branch
+git checkout -b qa		to change branch if not exits create that branch
+
+
+develop branch la sila file change panirukoom
+then checkout master, anga poi patha inga pannathu laam irukathu
+
+merging branch to branch
+
+yentha yadathula copy pannum oh anga irukanum so, at "qa"
+	if "qa" la copy pannanum "develop" la irukura file ah 
+	qa <------ develop
+Merge pannum pothu target branch la irukanum
+git merge develop qa
+		 <source> <destination>
+
+
+git branch -d qa		  to delete branch
+
+GIT REBASE
+	Rebasing is the process of moving or combining a sequence of commits to a 
+new base commit. 
+"Rebasing is often used as an alternative to merging".
+Rebasing a branch updates one branch with another by applying the commits of one branch
+on top of the commits of another brack
+
+git rebase feature master
+     commit from feature are put into master
+
+git cherry-pick, for taking particular commit and put into another branch
+
+git checkout master           in target branch
+git cherry-pick commited      to move the particular commit to target branch
+
+git stash
+
+     ipo work panikitu irukoom apo pathu, vara work varuthu old files ah commit panna mudiyathu full mudikala
+normal ah enna panuvoom oru copy yaduthuvachitu, new modification la work panuvoom same in "stash"
+
+     This command saves your local modifications away and reverts the working directory to
+match the HEAD commit
+In short, Stash the changes in a dirty working directory away. So Use git stash when you
+want to record the current state of the working directory and the index, but want to go back 
+to a clean working directory
+
+git stash
+git stash pop
+git stash list
+
+version control kulla vantha than stash pannamudiyoom so,
+git add .
+git stash           podomna commit ku kamikathu
+
+
+git squash
+     Mutiple commits ah single commit ah git history ah mathurarhu thaan git squashing
+     neriya commit ah ona mathurarthu
+     single ah mathita, yathavathu commit ah matha mudiyathu
+
+git rebase -i HEAD~[6]
+git rebase -i <upto commit> 
+
+
+CONFLICTS
+
+branch to branch push pannum pothu pr (pull request) rise aagum
+
+git pull origin master
+git status
+vi <conflict file>
+git add <conflict file>
+git commit -m "conflict resolved"
+git push orgin web-changes

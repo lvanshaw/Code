@@ -1,0 +1,67 @@
+4 rounds
+	day1
+	1 apt
+		60min 60q
+		basic math based
+		35% 21 must be correct its not an mcq 
+		calculators allowed
+	2 comprehensive assessment
+		3 coding question
+		2 wirting q
+		2hrs 45min
+		
+		easy medium & dificult for coding each 30min 1.30hr
+		research writting its for 45 mintues (we can toggle page 4 times)
+		creative writting its for 30 minutes
+
+	day2
+	3 technical
+	4 hr
+	at office
+	
+The topics are 
+simplification
+percentages, 
+averages, 
+mixtures,
+pipe and cistern,
+time and work, 
+probability,
+primenumbers,
+venn diagrams, (AUB) = A + B - ANB
+clock,
+time speed and distance 
+logical reasoning
+Trains,
+Handshakes,
+mixtures,
+Ships,
+Prime number
+sitting arrangements and blood relation and number series
+
+
+pattern printing
+Find binary value was the numbers
+check two strings are anagrams
+
+Interview Questions
+Test case design based questions
+What do you know about Hexnode MDM?
+Explain a scenario in which you can use Hexnode.
+A pattern printing problem
+How can Git be used for version management?
+What is continuous delivery?
+Tools in DevOps
+Draft an email based on some certain business scenario.
+why fan has three blades
+what would i do if there was a fire in my room, or when an elephant came in
+how would i test a pen, a fan, glasses etc
+About final year project
+
+Find the first non-repeating character in Queue based approach for first non-repeating character in a stream.
+
+Find the minimum time which would take the gas to reach all the cells if the explosion happened at a point in the matrix. Check if all enemies are killed with bombs placed in a matrix. The problem was simpler than the given link, it was a simple BFS problem, but I was asked why we are not able to use DFS here, then I was asked to code the problem.
+
+https://www.geeksforgeeks.org/check-if-all-enemies-are-killed-with-bombs-placed-in-a-matrix/
+https://www.geeksforgeeks.org/count-greater-elements-on-the-left-side-of-every-array-element/
+https://www.geeksforgeeks.org/check-if-all-enemies-are-killed-with-bombs-placed-in-a-matrix/

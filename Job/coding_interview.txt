@@ -1,0 +1,22 @@
+it easy to get digits left and right via / %
+
+in c++ empty class size 
+0
+
+copy constructor la pass-by-value ah pass panna kudathu
+pass-by-refernce pass pannanum
+A(A other) wrong
+A(const A& other) right
+
+Java 
+Data containers
+	Collections
+	Map
+	
+Thread SCheduler - wait notify and notifyall
+
+
+in c/c++ when passing array as argument to a function, and trying to get the size of the array it returns 4 because it passes first elment
+and also in passing the array to pointer
+int a[] ={1,2,3};
+int *p[] = &a;

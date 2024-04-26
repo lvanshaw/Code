@@ -1,0 +1,21 @@
+alias
+internal command
+external command
+	type ls
+
+0< STDIN
+1> STDOUT
+2> STDERR
+
+The name of this file is .bash_ history, and it is created in the home directory of the user who started a specific shell session
+
+ls a > error 2>&1 in same file as output if there is an error
+
+if you want to discard a command’s output, you can redirect to /dev/null
+ehco $PATH > /dev/null
+
+Type ls ilwehgi > /dev/null. This command shows a “no such file or directory” message onscreen. 
+You see the message because it is not STDOUT, but rather an error message that is written to STDERR
+
+
+The name of this file is .bash_ history, and it is created in the home directory of the user who started a specific shell session
