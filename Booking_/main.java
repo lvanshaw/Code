@@ -4,25 +4,33 @@ class main{
 	public static List<seat> seats = new ArrayList<>();
 	public static List<book> ticked = new ArrayList<>();
 	public static tickedinfo info = new tickedinfo();
+	
+	
+	
 	public static void printAllDetails(List<book> ticked) {
-    for (book b : ticked) {
-        System.out.println("PNR: " + b.pnr);
-        System.out.println("Source: " + b.source);
-        System.out.println("Destination: " + b.destination);
-        System.out.println("Seat Number: " + b.seatnumber);
-        System.out.println("Extra: " + b.extra);
-        System.out.println("Seat Info: " + b.seatinfo);
-        System.out.println("Multiple:");
-        for (book m : b.multiple) {
-            System.out.println("\tPNR: " + m.pnr);
-            System.out.println("\tSource: " + m.source);
-            System.out.println("\tDestination: " + m.destination);
-            System.out.println("\tSeat Number: " + m.seatnumber);
-            System.out.println("\tExtra: " + m.extra);
-            System.out.println("\tSeat Info: " + m.seatinfo);
-        }
-    }
-	System.out.println("-----------------------");
+		System.out.println("");
+		for (book b : ticked) {
+			System.out.println("PNR: " + b.pnr);
+			System.out.println("\tSeat Status: " + b.status);
+			System.out.println("\tSource: " + b.source);
+			System.out.println("\tDestination: " + b.destination);
+			System.out.println("\tSeat Number: " + b.seatnumber);
+			System.out.println("\tExtra: " + b.extra);
+			System.out.println("\tSeat Info: " + b.seatinfo);
+			System.out.println( (b.extra > 0)?"\tMultiple:":"\r");
+			for (book m : b.multiple) {
+				System.out.println("");
+				//System.out.println("\t\tPNR: " + m.pnr);
+				System.out.println("\t\tSeat Status: " + m.status);
+				System.out.println("\t\tSource: " + m.source);
+				System.out.println("\t\tDestination: " + m.destination);
+				System.out.println("\t\tSeat Number: " + m.seatnumber);
+				//System.out.println("\t\tExtra: " + m.extra);
+				System.out.println("\t\tSeat Info: " + m.seatinfo);
+			}
+			System.out.println("");
+		}
+		System.out.println("");
 }
 
 	public static void main(String args[]){
