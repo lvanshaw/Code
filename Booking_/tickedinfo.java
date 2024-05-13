@@ -32,7 +32,7 @@ class tickedinfo{
 			if(totaltictets == m+1) break;
 		}
 		if(totaltictets == m+1){
-			main.ticked.add(new book(id, source, destination, temp.get(0).no, temp.get(0), m, temp));
+			main.ticked.add(new book(id, source, destination, temp.get(0).no, temp.get(0), m, temp, "booked"));
 			//System.out.println(id+"  " + source+ " " +destination+ " "+ temp.get(0).no+  "  "+ temp.get(0)+ " "+ m);
 			System.out.println("PNR: "+ id +"\nSeat Number: "+ temp.get(0).no);
 
@@ -66,7 +66,7 @@ class tickedinfo{
 					
 				}
 				System.out.println("PNR: "+ id +"\nSeat Number: "+ i);
-				main.ticked.add(new book(id, source, destination, i, main.seats.get(i)));
+				main.ticked.add(new book(id, source, destination, i, main.seats.get(i), "booked"));
 				id++;
 				return i;
 				
