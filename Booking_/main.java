@@ -59,38 +59,40 @@ class main{
 					}
 				break;
 				case 2:
-					System.out.print("Enter PNR: ");
-					int pnr = scan.nextInt();
-					System.out.print("Enter No of Ticked to be Removed: ");
-					int r = scan.nextInt();
-					for(int i =0; i<ticked.size(); i++){
-						if(ticked.get(i).pnr == pnr){
-							book tobeRemoved = ticked.get(i);
-							
-							char ss = ticked.get(i).source;
-							char dd = ticked.get(i).destination;
-							int extra_t = ticked.get(i).extra;
-							
-							int seat_number = ticked.get(i).seatnumber;
-							System.out.println("Removed: " + ticked.get(i).pnr+" "+ ss +" "+ dd+" " + extra_t+" "+ seat_number + " == "+ (seats.get(ticked.get(i).seatnumber).no-1));
-
-							if(extra_t == 0){
-								for(int j =(ss - 'a'); j<=(dd - 'a'); j++){
-									seats.get(ticked.get(i).seatnumber).a[j] = 0;
-								}
-								ticked.remove(i);
-								break;
+				System.out.print("Enter PNR: ");
+				int pnr = scan.nextInt();
+				System.out.print("Enter No of Tickets to be Removed: ");
+				int r = scan.nextInt();
+				for (int i = 0; i < ticked.size(); i++) {
+					if (ticked.get(i).pnr == pnr) {
+						book tobeRemoved = ticked.get(i);
+						char ss = ticked.get(i).source;
+						char dd = ticked.get(i).destination;
+						int extra_t = ticked.get(i).extra;
+						int seat_number = ticked.get(i).seatnumber;
+						System.out.println("Removed: " + ticked.get(i).pnr + " " + ss + " " + dd + " " + extra_t + " " + seat_number + " == " + (seats.get(ticked.get(i).seatnumber).no - 1));
+						if (extra_t == 0) {
+							for (int j = (ss - 'a'); j <= (dd - 'a'); j++) {
+								seats.get(ticked.get(i).seatnumber).a[j] = 0;
 							}
-							
-							if(r!=0){
-								for(int l =0; l<r; l++){
-									tobeRemoved.multiple.remove(tobeRemoved.multiple.get(multiple.size() - 1));
-									ticked.get(i).extra -=1;
+							ticked.remove(i);
+							break;
+						}
+						if (r != 0) {
+							for (int l = 0; l < r; l++) {
+								if (!tobeRemoved.multiple.isEmpty()) {
+									seat lastone = tobeRemoved.multiple.get(tobeRemoved.multiple.size() - 1).seatinfo;
+									for (int j = (ss - 'a'); j <= (dd - 'a'); j++) {
+										lastone.a[j] = 0;
+									}
+									tobeRemoved.multiple.remove(tobeRemoved.multiple.size() - 1);
+									ticked.get(i).extra -= 1;
 								}
 							}
 						}
 					}
-				break;
+				}
+			break;
 				case 3:
 					for(int i=0; i<seats.size(); i++){
 						System.out.println(Arrays.toString(seats.get(i).a));
